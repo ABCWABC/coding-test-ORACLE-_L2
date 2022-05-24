@@ -1,0 +1,9 @@
+SELECT ANIMAL_ID, NAME
+FROM (SELECT rownum num, ANIMAL_ID, NAME
+      FROM (SELECT rownum rn, a.ANIMAL_ID, a.NAME
+     		FROM ANIMAL_INS a, ANIMAL_OUTS b
+     		WHERE a.ANIMAL_ID = b.ANIMAL_ID
+     		ORDER BY (b.DATETIME - a.DATETIME) DESC
+           )
+     )
+WHERE num <= 2;
