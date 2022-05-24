@@ -1,0 +1,15 @@
+/* 정답 */
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_INS
+WHERE ANIMAL_TYPE = 'Dog'
+AND (LOWER(NAME) LIKE '%el%')
+ORDER BY NAME ASC;
+
+
+/* 내가한 틀린답 */
+/* - 이렇게 쓰면 WHERE 조건에서 애니멀 타입이 다른 이름에 '%el%'이 포함된 값이 출력됨 */
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_INS
+WHERE ANIMAL_TYPE = 'Dog'
+AND NAME LIKE '%EL%' OR NAME LIKE '%el%'
+ORDER BY NAME ASC;
